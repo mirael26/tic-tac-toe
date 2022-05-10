@@ -1,0 +1,11 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 50px;
+}
+
+.game__heading {
+  @include heading;
+  margin-bottom: 50px;
+}
