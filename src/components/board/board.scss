@@ -1,3 +1,14 @@
 .board {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 300px;
+  padding: 12px;
+}
+
+.board__image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
