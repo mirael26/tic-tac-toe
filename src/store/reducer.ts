@@ -3,7 +3,7 @@ import { ActionType } from "./action";
 
 
 const initialState: State = {
-  gameData: [1, 0, 1, null, 1, null, 1, null, null],
+  gameData: [null, null, null, null, null, null, null, null, null],
   currentPlayer: 1,
   gameStatus: 'play',
 };

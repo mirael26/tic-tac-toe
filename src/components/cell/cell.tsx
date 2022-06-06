@@ -8,19 +8,18 @@ const CellImage = {
 }
 
 interface CellProps {
-  value: CellValue
+  value: CellValue,
+  cellId: number,
 }
 
-
-
-const Cell = ({value}: CellProps): JSX.Element => {
+const Cell = ({value, cellId}: CellProps): JSX.Element => {
   let cellImage;
   if (value !== null) {
     cellImage = (value === 1) ? CellImage.CROSS : CellImage.ZERO;
   }
 
   return (
-    <div className="cell">
+    <div className="cell" id={cellId.toString()}>
       {value !== null && cellImage
         ? <img className="cell__image" src={cellImage} alt="ячейка" />
         : null
