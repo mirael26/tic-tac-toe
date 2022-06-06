@@ -30,4 +30,8 @@ export interface UpdateGameStatus {
   payload: GameStatus
 }
 
-export type Action = UpdateGameData | ChangePlayer | UpdateGameStatus;
+export interface ResetGame {
+  type: typeof ActionType.RESET_GAME,
+}
+
+export type Action = UpdateGameData | ChangePlayer | UpdateGameStatus | ResetGame;

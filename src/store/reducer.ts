@@ -3,7 +3,7 @@ import { ActionType } from "./action";
 
 
 const initialState: State = {
-  gameData: [null, 0, 1, null, 1, null, 1, null, null],
+  gameData: [1, 0, 1, null, 1, null, 1, null, null],
   currentPlayer: 1,
   gameStatus: 'play',
 };
@@ -16,6 +16,8 @@ const reducer = (state = initialState, action: Action): State => {
       return {...state, currentPlayer: Number(!state.currentPlayer) as 0 | 1};
     case ActionType.UPDATE_GAME_STATUS:
       return {...state, gameStatus: action.payload};
+    case ActionType.RESET_GAME:
+      return initialState;
     default:
       return state;
   }
