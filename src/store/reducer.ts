@@ -6,6 +6,7 @@ const initialState: State = {
   gameData: [null, null, null, null, null, null, null, null, null],
   currentPlayer: 1,
   gameStatus: 'play',
+  winner: null,
 };
 
 const reducer = (state = initialState, action: Action): State => {
@@ -16,6 +17,8 @@ const reducer = (state = initialState, action: Action): State => {
       return {...state, currentPlayer: Number(!state.currentPlayer) as 0 | 1};
     case ActionType.UPDATE_GAME_STATUS:
       return {...state, gameStatus: action.payload};
+    case ActionType.UPDATE_WINNER:
+      return {...state, winner: action.payload};
     case ActionType.RESET_GAME:
       return initialState;
     default:
