@@ -2,3 +2,8 @@
   font-family: "RocknRollOne", Arial, sans-serif;
   font-size: 40px;
 }
+
+@mixin text {
+  font-family: "Overpass", Arial, Helvetica, sans-serif;
+  font-size: 35px;
+}

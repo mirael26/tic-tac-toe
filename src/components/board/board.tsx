@@ -53,7 +53,7 @@ const Board = ():JSX.Element => {
         setTimeout(() => {
           dispatch(ActionCreator.updateWinner(Number(!currentPlayer) as 0 | 1));
           dispatch(ActionCreator.updateGameStatus('gameover'));
-        }, 4000);
+        }, 2000);
         setDisabled(true);
         setWinCombination(combination);
         return;
@@ -62,7 +62,7 @@ const Board = ():JSX.Element => {
         setTimeout(() => {
           dispatch(ActionCreator.updateWinner('drawn'));
           dispatch(ActionCreator.updateGameStatus('gameover'));
-        }, 2000);
+        }, 1000);
       }
     },
     [cellValues]
