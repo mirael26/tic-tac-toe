@@ -1,10 +1,13 @@
 import { ActionType } from "./store/action";
+import { Combinations } from "./consts";
 
 // data
 
 export type CellValue = null | 1 | 0;
 export type GameStatus = 'play' | 'gameover';
 export type Winner = null | 1 | 0 | 'drawn';
+
+export type CombinationsType = keyof typeof Combinations;
 
 // state
 

@@ -4,11 +4,10 @@ import { useSelector, useDispatch, useStore } from "react-redux";
 
 import { Combinations } from "../../consts";
 import { ActionCreator } from "../../store/action";
-import { CellValue, State } from "../../types";
+import { CellValue, CombinationsType, State } from "../../types";
 
 import Cell from "../cell/cell";
-
-type Combinations = keyof typeof Combinations;
+import WinLine from "../win-line/win-line";
 
 const getCellId = (evt: React.SyntheticEvent): string | null => {
   const element = evt.target as Element;
@@ -25,7 +24,7 @@ const isBoardFull = (gameData: Array<CellValue>): boolean => {
   return gameData.filter(cell => cell === null).length === 0;
 }
 
-const findCombination = (gameData: Array<CellValue>): null | Combinations => {
+const findCombination = (gameData: Array<CellValue>): null | CombinationsType => {
   const result = Object.keys(Combinations).find((combination) => {
     const [a, b, c] = Combinations[combination];
     if ((gameData[a] === 0 || gameData[a] === 1)
@@ -34,13 +33,13 @@ const findCombination = (gameData: Array<CellValue>): null | Combinations => {
       return true;
     }
     return false;
-  }) as Combinations;
+  }) as CombinationsType;
   return result === undefined ? null : result;
 }
 
 const Board = ():JSX.Element => {
 
-  const [winCombination, setWinCombination] = useState<Combinations | null>(null);
+  const [winCombination, setWinCombination] = useState<CombinationsType | null>(null);
   const [isDisabled, setDisabled] = useState<boolean>(false);
 
   const cellValues = useSelector((state: State) => state.gameData);
@@ -88,6 +87,9 @@ const Board = ():JSX.Element => {
       {cellValues.map((el, id) => {
         return <Cell key={`cell-${id}`} value={el} cellId={id}/>
       })}
+      {winCombination 
+        ? <WinLine combination={winCombination} />
+        : null}
       <img className="board__image" src={require("../../img/board.png")} alt="game board"/>
     </div>
   );
