@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { State } from "../../types";
 
 const WinnerText = {
-  DRAWN: 'Победила ничья!',
+  DRAWN: 'Победила дружба!',
   0: 'Победил игрок Нолик!',
   1: 'Победил игрок Крестик!',
 }
