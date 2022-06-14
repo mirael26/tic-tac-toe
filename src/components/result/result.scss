@@ -1,4 +1,6 @@
 .result {
+  display: flex;
+  flex-direction: column;
   margin-top: 100px;
   width: 410px;
 }
@@ -30,6 +32,7 @@
 }
 
 .result__text {
+  margin-bottom: 40px;
   font-size: 35px;
   font-family: monospace;
   overflow: hidden;
@@ -43,4 +46,17 @@
   0%, 40% {
     width: 0;
   } 
+}
+
+.result__button {
+  @include button;
+  margin: auto;
+  opacity: 1;
+  animation: button-show 5s linear;
+}
+
+@keyframes button-show {
+  0%, 80% {
+    opacity: 0;
+  }
 }

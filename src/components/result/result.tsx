@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ActionCreator } from "../../store/action";
 
 import { State } from "../../types";
 
@@ -12,11 +13,16 @@ const WinnerText = {
 
 const Result = (): JSX.Element => {
   const winner = useSelector((state: State) => state.winner);
+  const dispatch = useDispatch();
 
   let winnerText = WinnerText.DRAWN;
   if (typeof winner === 'number') {
     winnerText = winner === 1 ? WinnerText[1] : WinnerText[0];
   }
+
+  const resetGame = () => {
+    dispatch(ActionCreator.resetGame());
+  };
 
   return (
     <div className="result">
@@ -27,6 +33,9 @@ const Result = (): JSX.Element => {
       }}>
         {winnerText}
       </p>
+      <button className="result__button" onClick={resetGame}>
+        Начать заново
+      </button>
     </div>
   );
 }
