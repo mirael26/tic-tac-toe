@@ -1,5 +1,6 @@
 .result {
   margin-top: 100px;
+  width: 410px;
 }
 
 .result__title {  
@@ -7,9 +8,39 @@
   margin-bottom: 25px;
   font-size: 50px;
   text-align: center;
+  animation: show-title 1s linear;
+}
+
+@keyframes show-title {
+  0% {
+    font-size: 20px;
+  }
+  20% {
+    font-size: 60px;
+  }
+  40% {
+    font-size: 40px;
+  }
+  60% {
+    font-size: 55px;
+  }
+  80% {
+    font-size: 45px;
+  }
 }
 
 .result__text {
-  @include text;
+  font-size: 35px;
+  font-family: monospace;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes printed-text {
+  0%, 40% {
+    width: 0;
+  } 
 }
