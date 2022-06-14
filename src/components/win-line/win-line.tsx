@@ -14,8 +14,10 @@ interface WinLineProps {
 const WinLine = ({combination}: WinLineProps): JSX.Element => {
   const lineImage = (combination === 'diagonal_1' || combination === 'diagonal_2') ? LineImage.DIAGONAL : LineImage.STRAIGHT;
   return (
-    <div className="win-line">
-      <img className={`win-line__image win-line__image--${combination}`} src={lineImage} alt='win-line'></img>
+    <div className={`win-line ${combination}`}>
+      <div className="win-line__wrapper">
+        <img className="win-line__image" src={lineImage} alt='win-line'></img>
+      </div>
     </div>
   );
 }

@@ -6,6 +6,12 @@
   height: 84px;
   margin-bottom: 12px;
   padding: 17px;
+
+  &:nth-child(7),
+  &:nth-child(8),
+  &:nth-child(9) {
+    margin-bottom: 0;
+  }
 }
 
 .cell__image {
